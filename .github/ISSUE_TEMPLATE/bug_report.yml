@@ -1,0 +1,71 @@
+name: Bug report
+description: A push that renders wrong, an error that is wrong or unclear, or a crash
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please remove real device tokens, keys and project details before posting.
+        `pushbench render <template> --for apns|sim|fcm` and `--dry-run --json` show exactly
+        what was sent, which is the most useful thing to include.
+  - type: input
+    id: version
+    attributes:
+      label: pushbench version
+      description: Output of `pushbench --version`, or a commit SHA from main
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: OS, and Xcode or adb version if it matters
+      placeholder: macOS 27.2, Xcode 27.2
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Command, template and config
+      description: The command you ran, the template, and the relevant parts of pushbench.toml, with secrets removed.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: The output (`--json` helps), the payload, or the error.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and its source
+      description: >
+        What should have been sent or shown, and how you know: a link to Apple's or Google's
+        documentation, or what the device did when the push came from your backend.
+    validations:
+      required: true
+  - type: dropdown
+    id: ai-use
+    attributes:
+      label: Did you use an AI tool to write this issue?
+      options:
+        - "No"
+        - "Yes, for parts"
+        - "Yes, mostly"
+    validations:
+      required: true
+  - type: input
+    id: ai-tool
+    attributes:
+      label: If yes, which tool and model?
+      description: Required if you answered yes above, for example "Claude Code, Opus 5.5" or "Copilot, GPT-5".
+  - type: checkboxes
+    id: own-words
+    attributes:
+      label: Your own words
+      description: Please write the issue in your own words; short and plain is fine. It shows us what you understood. Please don't paste generated text.
+      options:
+        - label: I wrote this issue in my own words.

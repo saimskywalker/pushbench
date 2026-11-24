@@ -1,0 +1,50 @@
+name: Feature request
+description: A push type, header, target, check or command pushbench should handle
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Push behaviour differs by platform and changes with OS releases, so every rule here
+        follows Apple's or Google's documentation. A request that links to it is much easier to land.
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like
+      description: What pushbench should do, and how you would call it (command, flag, template field).
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Documentation
+      description: A link to the Apple, Google or Firebase documentation this follows.
+  - type: textarea
+    id: use
+    attributes:
+      label: Why you need it
+      description: What you are trying to test, and what you do today instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: ai-use
+    attributes:
+      label: Did you use an AI tool to write this issue?
+      options:
+        - "No"
+        - "Yes, for parts"
+        - "Yes, mostly"
+    validations:
+      required: true
+  - type: input
+    id: ai-tool
+    attributes:
+      label: If yes, which tool and model?
+      description: Required if you answered yes above, for example "Claude Code, Opus 5.5" or "Copilot, GPT-5".
+  - type: checkboxes
+    id: own-words
+    attributes:
+      label: Your own words
+      description: Please write the issue in your own words; short and plain is fine. It shows us what you understood. Please don't paste generated text.
+      options:
+        - label: I wrote this issue in my own words.
